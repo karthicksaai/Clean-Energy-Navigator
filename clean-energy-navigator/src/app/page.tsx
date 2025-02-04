@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Sun, Wind, Battery, DollarSign, LineChart, MapPin } from 'lucide-react';
+import RotatingText from '@/components/RotatingText';
 
 interface FeatureCardProps {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -43,7 +44,19 @@ const HomePage = () => {
       {/* Hero Section */}
       <header className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-5xl font-bold mb-6 text-gray-800">
-          Your Path to <span className="text-green-600">Sustainable Energy</span>
+          Your Path to
+          <RotatingText
+            texts={['Sustainable Energy', 'Clean Energy', 'Energy Independence', 'Environmental Impact', 'Cost Savings']}
+            mainClassName="px-2 sm:px-2 md:px-3 text-green overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            staggerFrom={"last"}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2000}
+          />
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
           Discover the perfect clean energy solution tailored to your needs. Save money, reduce your carbon footprint, and contribute to a sustainable future.
