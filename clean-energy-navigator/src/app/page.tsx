@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Sun, Wind, Battery, DollarSign, LineChart, MapPin } from 'lucide-react';
+import RotatingText from '@/components/RotatingText';
 
 interface FeatureCardProps {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -43,7 +44,19 @@ const HomePage = () => {
       {/* Hero Section */}
       <header className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-5xl font-bold mb-6 text-gray-800">
-          Your Path to <span className="text-green-600">Sustainable Energy</span>
+          Your Path to
+          <RotatingText
+            texts={['Sustainable Energy', 'Clean Energy', 'Energy Independence', 'Environmental Impact', 'Cost Savings']}
+            mainClassName="px-2 sm:px-2 md:px-3 text-green overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            staggerFrom={"last"}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2000}
+          />
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
           Discover the perfect clean energy solution tailored to your needs. Save money, reduce your carbon footprint, and contribute to a sustainable future.
@@ -56,6 +69,23 @@ const HomePage = () => {
           <ArrowRight className="w-5 h-5" />
         </Link>
       </header>
+
+      {/* Sustainability Check Section */}
+      <section className="container mx-auto px-4 py-8">
+        <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Check Product Sustainability</h2>
+        <p className="text-xl text-center text-gray-600 mb-8">
+          Quickly analyze the sustainability of a product by entering its link.
+        </p>
+        <div className="text-center">
+          <Link
+            href="/check"
+            className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition-colors duration-300"
+          >
+            <span>Check Product</span>
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </section>
 
       {/* Features Grid */}
       <section className="container mx-auto px-4 py-16">
@@ -100,6 +130,23 @@ const HomePage = () => {
               <p className="text-gray-600">Take control of your energy future with sustainable solutions.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+            {/* AI Chatbot Section */}
+            <section className="container mx-auto px-4 py-8">
+        <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Talk to our Sustainability AI Chatbot</h2>
+        <p className="text-xl text-center text-gray-600 mb-8">
+          Get personalized advice and information on your path to clean energy solutions.
+        </p>
+        <div className="text-center">
+          <Link
+            href="/chatbot"
+            className="inline-flex items-center space-x-2 bg-purple-600 text-white px-8 py-4 rounded-full text-lg hover:bg-purple-700 transition-colors duration-300"
+          >
+            <span>Chat with AI</span>
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
 
